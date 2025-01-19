@@ -23,14 +23,12 @@
 
 - Gradle(반드시\!)
 
-\= \> 이제 메이븐 안쓰구요. 느려요.
-
 # 패키지 명
 
-- com.abc  
+- com.example.demo  
   - controller  
     - aController.java  
-  - repo  
+  - repository  
     - aRepository.java  
       - MyBaits  
       - JPA  
@@ -38,10 +36,20 @@
     - aEntity.java  
   - vo  
     - aVo.java  
-  - service  
-    - aService.java  
-  - serviceImpl  
-    - a.ServiceImpl.java
+  - service
+    - impl
+      - aServiceImpl.java
+    - aService.java
+- config
+- const
+  - commonConst
+
+- resource  
+  - config
+  - datasoure
+  - mybatis   
+    - sql
+  - etc.. 
 
 - ctr(vo) \-\> svc \-\> svcImpl(domain/entity) \-\> repo \-\> db
 
