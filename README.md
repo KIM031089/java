@@ -7,7 +7,6 @@
   - VScode
 
 # DB
-
 - PotgresSQL
 
 # ORM
