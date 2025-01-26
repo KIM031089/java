@@ -1,0 +1,9 @@
+### GET1
+GET http://localhost:8080/comm/menus
+Content-Type: application/json
+
+{
+
+}
+
+### POST1

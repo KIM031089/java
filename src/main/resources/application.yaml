@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    driver-class-name: org.h2.Driver  # Database를 H2로 사용하겠다.
+    # url: jdbc:h2:tcp://localhost/~/test  # H2 접속 정보
+    url: jdbc:h2:mem:test
+    username: sa  # H2 접속 시 입력할 username 정보 (원하는 것으로 입력)
+    password:  # H2 접속 시 입력할 password 정보 (원하는 것으로 입력)
+  ## JPA Setting Info
+  jpa:
+    hibernate:
+      ddl-auto: update  # option type: create, create-drop, update, validate, none
+      naming:
+        physical-strategy: com.example.demo.common.jpa.CustomPhysicalNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect  # 쿼리의 기준이 되는 데이터베이스 엔진을 설정합니다.
+        format-sql: true  # sql query formatting
+        use-sql-comments: true  # sql 쿼리의 추가정보를 보여줍니다.
+        globally-quoted-identifiers: true # ddl 잘 안될때
+    show-sql: true
+  sql:
+    init:
+      encoding: utf-8
+  # 콘솔 확인 을 위한 always
+  output:
+    ansi:
+      enabled: always
+
+springdoc:
+  packagesToScan: com.example.demo
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui # 접속 path 설정
+    tagsSorter: alpha
+    operations-sorter: alpha
+    display-request-duration: true  # try it out 을 했을 때 request duration 을 추가로 찍어줌
+  use-fqn: true
