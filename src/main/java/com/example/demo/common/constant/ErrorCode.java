@@ -1,25 +1,22 @@
 package com.example.demo.common.constant;
 
-import java.util.Collection;
-
 import org.springframework.http.HttpStatus;
 
 import lombok.Getter;
 
-@Getter
 public enum ErrorCode {
-  INTERNAL_SERVER_ERROR("CMN5N0001", "INTERNAL_SERVER_ERROR", HttpStatus.INTERNAL_SERVER_ERROR);
+  INTERNAL_SERVER_ERROR("CMN5N0001", "INTERNAL_SERVER_ERROR", HttpStatus.INTERNAL_SERVER_ERROR),
+  PARAM_INVALID_ERROR("CMN1N0001", "PARAM_INVALID", HttpStatus.OK),
+  DATA_NOT_FOUND_ERROR("CMN1N0002", "DATA_NOT_FOUND_ERROR", HttpStatus.OK);
 
+  @Getter
   private String errorCode;
-  private String errorName;
-  private HttpStatus httpStatus;
-  // private static final Map<String, ErrorCode> = Collections.un
 
-  ErrorCode(String errorCode, String errorName) {
-    this.errorCode = errorCode;
-    this.errorName = errorName;
-    this.httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
-  }
+  @Getter
+  private String errorName;
+
+  @Getter
+  private HttpStatus httpStatus;
 
   ErrorCode(String errorCode, String errorName, HttpStatus httpStatus) {
     this.errorCode = errorCode;

@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.4.1'
+	id 'org.springframework.boot' version '3.4.2'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -14,6 +14,12 @@ java {
 	}
 }
 
+compileJava {
+    options.compilerArgs += [
+				'-Amapstruct.defaultComponentModel=spring'
+    ]
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
@@ -24,18 +30,35 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+    mapstructVersion = "1.6.0"
+    lombokVersion = "1.18.30"
+    lombokMapstructBindingVersion = "0.2.0"
+}
+
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'	//Swagger
-	// implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
-	compileOnly 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
+
+
+	implementation "org.mapstruct:mapstruct:${mapstructVersion}", "org.projectlombok:lombok:${lombokVersion}"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}", "org.projectlombok:lombok:${lombokVersion}", "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
+
+
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.projectlombok:lombok'
+	
+	
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.4'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// testAnnotationProcessor 'org.mapstruct:mapstruct-processor:${mapstructVersion}', 'org.projectlombok:lombok:${lombokVersion}', 'org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}'
+
 }
 
 tasks.named('test') {

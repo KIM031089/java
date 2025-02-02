@@ -1,9 +1,36 @@
-### GET1
-GET http://localhost:8080/comm/menus
+### GET LIST
+GET {{baseUrl}}:{{port}}/board
 Content-Type: application/json
 
 {
 
 }
 
-### POST1
+### POST
+POST {{baseUrl}}:{{port}}/board
+Content-Type: application/json
+
+{
+  "order": 1,
+  "titles": [
+    {
+      "langCode": "ko",
+      "title": "게시판1",
+      "defaultYn": true
+
+    },
+    {
+      "langCode": "en",
+      "title": "board1",
+      "defaultYn": false
+    }
+  ]
+}
+
+### UPDATE
+POST {{baseUrl}}:{{port}}/board/
+
+### DELETE
+DELETE {{baseUrl}}:{{port}}/board/e7e37953-22d9-43f2-89df-a2922097ac77
+
+
