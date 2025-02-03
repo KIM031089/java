@@ -1,13 +1,11 @@
 package com.example.demo.board.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
 import com.example.demo.board.entity.BoardEntity;
-import com.example.demo.board.entity.BoardTitleEntity;
 import com.example.demo.board.mapper.BoardMapper;
 import com.example.demo.board.repository.BoardRepository;
 import com.example.demo.board.service.BoardService;

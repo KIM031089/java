@@ -27,12 +27,12 @@ public class BoardController {
   private final BoardService boardService;
 
   @GetMapping("/boards")
-  public List<BoardVo.ListResponse> getBoards(@RequestParam(name = "langCode") String langCode) {
+  public List<BoardVo.ListResponse> getBoards(@RequestParam String langCode) {
     return boardService.getBoards(BoardVo.ListRequest.builder().langCode(langCode).build());
   }
 
   @GetMapping("/board/{id}")
-  public DetailResponse getBoard(@PathVariable("id") UUID id) throws BizException {
+  public DetailResponse getBoard(@PathVariable UUID id) throws BizException {
     return boardService.getBoard(id);
   }
 
@@ -43,14 +43,14 @@ public class BoardController {
   }
 
   @PostMapping("/board/{id}")
-  public CommonResponse updateBoard(@RequestBody @Valid BoardVo.CreateRequest param, @PathVariable("id") String id)
+  public CommonResponse updateBoard(@RequestBody @Valid BoardVo.CreateRequest param, @PathVariable String id)
       throws BizException {
     boardService.updateBoard(UUID.fromString(id), param);
     return new CommonResponse();
   }
 
   @DeleteMapping("/board/{id}")
-  public CommonResponse deleteBoard(@PathVariable("id") String id) throws BizException {
+  public CommonResponse deleteBoard(@PathVariable String id) throws BizException {
     boardService.deleteBoard(UUID.fromString(id));
     return new CommonResponse();
   }

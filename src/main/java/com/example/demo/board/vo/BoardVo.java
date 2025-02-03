@@ -20,7 +20,6 @@ public class BoardVo {
     private boolean delYn;
     private int order;
     private String title;
-
   }
 
   @Data
@@ -52,7 +51,7 @@ public class BoardVo {
   @Data
   public static class UpdateRequest {
     private String id;
-    
+
     @NotNull
     @PositiveOrZero
     private int order;
@@ -74,7 +73,7 @@ public class BoardVo {
     private String title;
 
     @NotNull
-    @JsonAlias({"isDefaultYn"})
+    @JsonAlias({ "isDefaultYn" })
     private boolean defaultYn;
-  } 
+  }
 }

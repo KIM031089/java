@@ -11,7 +11,7 @@ public interface BoardService {
   List<BoardVo.ListResponse> getBoards(BoardVo.ListRequest param);
 
   BoardVo.DetailResponse getBoard(UUID id) throws BizException;
-  
+
   void addBoard(BoardVo.CreateRequest param);
 
   void updateBoard(UUID id, BoardVo.CreateRequest param) throws BizException;
