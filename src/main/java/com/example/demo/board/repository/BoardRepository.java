@@ -10,6 +10,6 @@ import com.example.demo.board.entity.BoardEntity;
 
 public interface BoardRepository extends JpaRepository<BoardEntity, UUID> {
   @SuppressWarnings("null")
-  @Query("select b from BoardEntity b join fetch b.titles")
+  @Query("select b from BoardEntity b left join fetch b.titles")
   List<BoardEntity> findAll();
 }
