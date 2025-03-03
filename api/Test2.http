@@ -1,0 +1,7 @@
+### Add Schedule
+POST {{baseUrl}}:{{port}}/schedule/v1
+Content-Type: application/json
+
+{
+  "cronExpression": "0/1 * * * * ?"
+}

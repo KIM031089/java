@@ -27,6 +27,7 @@ spring:
   output:
     ansi:
       enabled: always
-logging:
-  level: 
-    org.hibernate.orm.jdbc.bind: trace
+
+
+sample:
+  value: default_value

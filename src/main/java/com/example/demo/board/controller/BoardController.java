@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.board.service.BoardService;
 import com.example.demo.board.vo.BoardVo;
 import com.example.demo.board.vo.BoardVo.DetailResponse;
+import com.example.demo.common.annotation.ElapsedTime;
 import com.example.demo.common.exception.BizException;
 import com.example.demo.common.vo.CommonResponse;
 
@@ -27,6 +28,7 @@ public class BoardController {
   private final BoardService boardService;
 
   @GetMapping("/boards")
+  @ElapsedTime(name = "리스트 조회")
   public List<BoardVo.ListResponse> getBoards(@RequestParam String langCode) {
     return boardService.getBoards(BoardVo.ListRequest.builder().langCode(langCode).build());
   }
